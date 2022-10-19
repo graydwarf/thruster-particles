@@ -1,0 +1,4 @@
+extends Node
+
+signal AddThrustParticleToUniverse
+signal UpdateThrust

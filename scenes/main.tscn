@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/thruster/thruster.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/main.gd" type="Script" id=2]
+
+[node name="Main" type="Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+
+[node name="ThrustParticleContainer" type="Node2D" parent="."]
+
+[node name="Thruster" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 301 )
+
+[node name="ThrustAdjusterHSlider" type="HSlider" parent="."]
+margin_left = 588.0
+margin_top = 467.0
+margin_right = 738.0
+margin_bottom = 499.0
+rect_rotation = 180.0
+min_value = 0.001
+max_value = 0.5
+step = 0.001
+value = 0.001
+
+[node name="ThrustLabel" type="Label" parent="."]
+margin_left = 465.0
+margin_top = 475.0
+margin_right = 560.0
+margin_bottom = 489.0
+text = "Thrust Amount"
+
+[connection signal="value_changed" from="ThrustAdjusterHSlider" to="." method="_on_HSlider_value_changed"]
